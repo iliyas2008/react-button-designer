@@ -1,0 +1,162 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+}
+.App-header {
+  background-color: #0054fd;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.App-body {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  gap: 2rem;
+  padding: 1rem;
+}
+.right, .left{
+  width: 50%;
+}
+.left-top{
+  width: 70%;
+}
+.inner{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 3rem;
+  border: .5px solid lightseagreen;
+  border-radius: 1rem;
+  padding: 1rem;
+  min-width: fit-content;
+}
+.inner .right-top{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 1rem;
+  align-items: center;
+}
+.inner .left-top{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+}
+.inner .right-bottom{
+  text-align: left;
+  margin-left: 10rem;
+}
+.cssBlock{
+  display: none;
+  margin-top: 1.5rem;
+}
+.cssBlock::before{
+content: ".myCustomBtn {";
+  font-size: .8rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+.cssBlock::after{
+  content: "}";
+  font-size: .8rem;
+  font-family: 'Courier New', Courier, monospace;
+  }
+.myCSSProps{
+  font-size: .8rem;
+  font-family: 'Courier New', Courier, monospace;
+  text-indent: 1.5rem;
+}
+.btnCreateCSS{
+  margin-top: 5rem;
+  border: none;
+  padding: 1rem;
+  background-color: seagreen;
+  color: white;
+  border-radius: .5rem;
+  font-size: 1rem;
+}
+
+/* Tooltip style starts */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; 
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 20%;
+  background-color: rgb(161, 84, 84);
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  
+  bottom: 100%;
+  left: 50%;
+  margin-left: -15rem; 
+
+  font-size: .8rem;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+/* Tooltip style ends */
+
+@media(max-width:768px){
+  .App-body{
+    flex-direction: column-reverse;
+  }
+.btnCreateCSS{
+  font-size: .8rem;
+  padding: .5rem;
+}
+  .right{
+    width: 90%;
+    margin-left: 2rem;
+  }
+  .left{
+    width: 80%;
+  }
+  .left-top{
+    width: 100%;
+  }
+  .inner{
+    padding: 0;
+  }
+  .inner .right-bottom {
+    text-align: left;
+    margin: 0rem;
+    padding: .5rem;
+    text-indent: 1rem;
+}
+.myCSSProps{
+  text-indent: 2rem;
+}
+.custom-label{
+  font-size: .6rem;
+}
+
+}
