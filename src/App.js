@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import MyColorPicker from './components/MyColorPicker'
 import './App.css';
+import { useEffect, useState } from 'react';
+import MyColorPicker from './components/MyColorPicker';
 import MySelectOption from './components/MySelectOption';
 import MySlider from './components/MySlider';
 
@@ -73,41 +73,45 @@ return string.substring(4, string.length-1).replace(/ /g, '').split(',');
   // RGB to Hex end
 
 */
-  const handleBgColor=(e)=>{
-    setBgColor(e.target.value)
+const handleColorPicker=(e)=>{
+  switch (e.target.id) {
+    case 'bgColor':
+      return setBgColor(e.target.value)
+    case 'txtColor':
+      return setTxtColor(e.target.value)
+    case 'txtDecorColor':
+      return setTxtDecorationColor(e.target.value)
+    case 'borderColor':
+      return setBorderColor(e.target.value)  
+  default: 
   }
-  const handletxtColor=(e)=>{
-    setTxtColor(e.target.value)
-  }
+}
 
-  const handleDecoration = (e)=>{
-    setTxtDecoration(e.target.value)
+const handleSlider=(e)=>{
+  switch (e.target.name) {
+    case 'txtSize':
+      return setTxtSize(e.target.value)
+    case 'btnWidth':
+      return setBtnWidth(e.target.value)
+    case 'btnHeight':
+      return setBtnHeight(e.target.value)
+    case 'borderWidth':
+      return setBorderWidth(e.target.value)  
+    case 'borderRadius':
+      return setBorderRadius(e.target.value)
+    default: 
   }
+}
 
-  const handleTxtDecorationColor = (e)=>{
-    setTxtDecorationColor(e.target.value)
+const handleSelectOption=(e)=>{
+  switch (e.target.name) {
+    case 'txtDecoration':
+      return setTxtDecoration(e.target.value)
+    case 'txtAlign':
+      return setTxtAlign(e.target.value)
+    default: 
   }
-  const handleTxtAlign = (e)=>{
-    setTxtAlign(e.target.value)
-  }
-  const handleTxtSize = (e)=>{
-    setTxtSize(e.target.value)
-  }
-  const handleBtnWidth = (e)=>{
-    setBtnWidth(e.target.value)
-  }
-  const handleBtnHeight = (e)=>{
-    setBtnHeight(e.target.value)
-  }
-  const handleBorderWidth = (e)=>{
-    setBorderWidth(e.target.value)
-  }
-  const handleBorderRadius = (e)=>{
-    setBorderRadius(e.target.value)
-  }
-  const handleBorderColor = (e)=>{
-    setBorderColor(e.target.value)
-  }
+}
 
   const handleCSSGenerate = ()=>{
       setCSSBool(CSSBool? false : true)
@@ -139,16 +143,18 @@ return string.substring(4, string.length-1).replace(/ /g, '').split(',');
           <div className="inner">
             <div className="left-top">
               <MyColorPicker
+              id={"bgColor"}
               label={"Background Color"}
               labelClassName={"custom-label"}
               value={bgColor}
-              onchange={handleBgColor}
+              onchange={handleColorPicker}
               />
               <MyColorPicker
+              id={"txtColor"}
               label={"Text Color"}
               labelClassName={"custom-label"}
               value={txtColor}
-              onchange={handletxtColor}
+              onchange={handleColorPicker}
               />
 
               <MySelectOption
@@ -157,13 +163,14 @@ return string.substring(4, string.length-1).replace(/ /g, '').split(',');
               labelClassName={"custom-label"}
               arrayOfData={txtDecorationArr}
               defaultValue={"Select Decoration"}
-              onchange={handleDecoration}
+              onchange={handleSelectOption}
               />
               <MyColorPicker
+              id={"txtDecorColor"}
               label={"Text Decoration Color"}
               labelClassName={"custom-label"}
               value={txtDecorationColor}
-              onchange={handleTxtDecorationColor}
+              onchange={handleColorPicker}
               />
               <MySelectOption
               name={"txtAlign"}
@@ -171,60 +178,66 @@ return string.substring(4, string.length-1).replace(/ /g, '').split(',');
               labelClassName={"custom-label"}
               arrayOfData={textAlignArr}
               defaultValue={"Select Align"}
-              onchange={handleTxtAlign}
+              onchange={handleSelectOption}
               />
               <MySlider
               label={"Text Size"}
+              name={"txtSize"}
               labelClassName={"custom-label"}
               value={txtSize}
               minValue={"1"}
               maxValue={"100"}
               stepBy={"1"}
-              onchange={handleTxtSize}
+              onchange={handleSlider}
               />
               
               <MySlider
               label={"Button Width"}
+              name={"btnWidth"}
               labelClassName={"custom-label"}
               value={btnWidth}
               minValue={"1"}
               maxValue={"450"}
               stepBy={"1"}
-              onchange={handleBtnWidth}
+              onchange={handleSlider}
               />
               <MySlider
               label={"Button Height"}
+              name={"btnHeight"}
               labelClassName={"custom-label"}
               value={btnHeight}
               minValue={"1"}
               maxValue={"450"}
               stepBy={"1"}
-              onchange={handleBtnHeight}
+              onchange={handleSlider}
               />
               <MySlider
               label={"Border Width"}
+              name={"borderWidth"}
               labelClassName={"custom-label"}
               value={borderWidth}
               minValue={"0"}
               maxValue={"50"}
               stepBy={"1"}
-              onchange={handleBorderWidth}
+              onchange={handleSlider}
               />
               <MyColorPicker
+              id={"borderColor"}
               label={"Border Color"}
               labelClassName={"custom-label"}
               value={borderColor}
-              onchange={handleBorderColor}
+              onchange={handleColorPicker}
               />
 
               <MySlider
               label={"Border Radius"}
+              name={"borderRadius"}
               labelClassName={"custom-label"}
               value={borderRadius}
               minValue={"0"}
               maxValue={"100"}
               stepBy={"1"}
-              onchange={handleBorderRadius}
+              onchange={handleSlider}
               />
             </div>
             <div style={{width:"100%"}}  className="left-bottom">

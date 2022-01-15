@@ -1,5 +1,6 @@
 export default function MySlider({
     label,
+    name,
     labelClassName,
     rangeClassName,
     value,
@@ -15,6 +16,7 @@ export default function MySlider({
         <label className={labelClassName} 
         htmlFor={`custom_slider_${label.replace(" ", "_")}`}>{label}</label>
         <input id={label.replace(" ", "_")} 
+        name={name}
         className={rangeClassName} 
         type="range"
         value={value}
