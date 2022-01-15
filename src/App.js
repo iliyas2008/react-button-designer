@@ -132,7 +132,7 @@ return string.substring(4, string.length-1).replace(/ /g, '').split(',');
         <p>Refer github <a style={{textDecoration:"none", 
         color:"lightseagreen", fontWeight:"700"}} 
         
-        href="https://github.com/iliyas2008/" rel="noreferrer" target="_blank">Repo</a></p>
+        href="https://github.com/iliyas2008/react-button-designer" rel="noreferrer" target="_blank">Repo</a></p>
       </header>
       <section className="App-body">
         <div className="left">
