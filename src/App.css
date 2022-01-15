@@ -92,6 +92,10 @@ content: ".myCustomBtn {";
   font-size: 1rem;
 }
 
+#myalert{
+  padding: 1rem;
+}
+
 /* Tooltip style starts */
 
 .tooltip {
@@ -157,6 +161,12 @@ content: ".myCustomBtn {";
 }
 .custom-label{
   font-size: .6rem;
+}
+
+.tooltip .tooltiptext {
+  margin-left: -4rem;
+  width: 8rem;
+  text-align: center;
 }
 
 }
